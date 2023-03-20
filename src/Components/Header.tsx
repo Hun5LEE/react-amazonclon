@@ -26,7 +26,7 @@ function Header() {
           <span className="header_optionLineTwo">주문내역</span>
         </div>
         <div className="header_option">
-          <span className="header_optionLineOne">반가워</span>
+          <span className="header_optionLineOne">반가</span>
           <span className="header_optionLineTwo">구독과좋아요</span>
         </div>
       </div>
