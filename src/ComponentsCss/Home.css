@@ -1,0 +1,7 @@
+.home_image {
+  width: 100%;
+  z-index: -1;
+  /* margin을 -로 줌으로써 배경밑의 이미지를 배경위로 margin만큼 올릴수있는 효과. */
+  margin-bottom: -150px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}

@@ -1,3 +1,5 @@
+/* Header */
+
 .header {
   height: 60px;
   display: flex;
@@ -6,6 +8,7 @@
   /* position sticky - top 0로 설정하여 스크롤시 탑배너에 계속 머물게하기. */
   position: sticky;
   top: 0;
+  margin-bottom: 5;
   z-index: 100;
 }
 
@@ -23,6 +26,49 @@
   border-radius: 20px;
 }
 
+.header_searchInput {
+  height: 12px;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
 .header_searchIcon {
   background-color: #cd9042;
+  padding: 5px;
+  height: 15px;
+  border-radius: 5px;
+  transform: rotate(0.05deg);
 }
+
+.header_option {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px 0 10px;
+  color: white;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header_optionLineOne {
+  font-size: 10px;
+}
+
+.header_optionLineTwo {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.header_optionBasket {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.header_optionLineTwoheader_basketCount {
+  margin: 0 10px 0 10px;
+}
+/* 여기까지 */
