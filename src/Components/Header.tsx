@@ -2,14 +2,18 @@ import React from "react";
 import "../ComponentsCss/Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasket from "@mui/icons-material/ShoppingBasket";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+
   return (
     <div className="header">
       {/* 로고 */}
       <img
         className="header_logo"
         src={process.env.PUBLIC_URL + "./Img/logo.png"}
+        onClick={() => navigate("/")}
       />
       {/* 검색창 */}
       <div className="header_search">
@@ -30,7 +34,10 @@ function Header() {
           <span className="header_optionLineOne">반가워요</span>
           <span className="header_optionLineTwo">구독과좋아요</span>
         </div>
-        <div className="header_optionBasket">
+        <div
+          className="header_optionBasket"
+          onClick={() => navigate("/checkout")}
+        >
           <ShoppingBasket />
           <span className="header_optionLineTwoheader_basketCount">구독</span>
         </div>

@@ -1,27 +1,27 @@
 import React from "react";
+import "../ComponentsCss/Product.css";
+interface props {
+  id: number;
+  title: string;
+  price: string;
+  image: string;
+  rating: number;
+}
 
-function Product() {
+function Product({ id, title, image, price, rating }: props) {
   return (
     <div className="product">
       <div className="product_info">
-        <p>제품1</p>
+        <p>{title}</p>
         <p className="product_price">
           <small>가격</small>
-          <strong>10,000</strong>
+          <strong>{price}</strong>
           <small>원</small>
         </p>
-        <div className="product_rating">
-          <p>⭐️⭐️</p>
-          <p>⭐️⭐️</p>
-          <p>⭐️⭐️</p>
-          <p>⭐️⭐️</p>
-        </div>
+        {/* Array( rating ).fill()을 사용하여 props로 받은 숫자만큼 별채우기. */}
+        <div className="product_rating">{Array(rating).fill(<p>⭐️</p>)}</div>
       </div>
-      <img
-        src="https://www.motoya.co.kr/news/photo/old/data/adm_ssts/pressphoto/Park/Oversea/2016/0212/mazdacx9/01.jpg"
-        alt=""
-        style={{ width: "300px" }}
-      />
+      <img src={image} alt="" style={{ width: "300px" }} />
       <button>장바구니에 담기</button>
     </div>
   );

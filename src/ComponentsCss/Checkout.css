@@ -1,0 +1,18 @@
+.checkout {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  /* height - max content는 장바구니의 들어있는 개수만큼 높이가 커짐. */
+  height: max-content;
+}
+
+.checkout_title {
+  margin-right: 10px;
+  padding: 10px;
+  border-bottom: 1px solid lightskyblue;
+}
+
+.checkout_ad {
+  width: 100%;
+  margin-bottom: 10px;
+}

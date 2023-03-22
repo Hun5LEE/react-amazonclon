@@ -17,6 +17,7 @@
   /* object-fit을 사용하여 비율을 망가지지 않고 크기를 맞게 설정 */
   object-fit: contain;
   margin: 5px 20px 0px 20px;
+  cursor: pointer;
 }
 
 .header_search {
@@ -66,6 +67,7 @@
   display: flex;
   align-items: center;
   color: white;
+  cursor: pointer;
 }
 
 .header_optionLineTwoheader_basketCount {
