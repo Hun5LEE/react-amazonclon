@@ -1,4 +1,5 @@
 import React from "react";
+import Subtotal from "../Components/Subtotal";
 import "../ComponentsCss/Checkout.css";
 
 function Checkout() {
@@ -19,7 +20,7 @@ function Checkout() {
         {/* 장바구니 아이템 */}
       </div>
       <div className="checkout_right">
-        <h2>장바구니 총 금액</h2>
+        <Subtotal />
       </div>
     </div>
   );

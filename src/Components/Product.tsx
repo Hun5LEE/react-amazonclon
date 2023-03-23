@@ -1,4 +1,5 @@
 import React from "react";
+import { useStateValue } from "../store/StateProvider.js";
 import "../ComponentsCss/Product.css";
 interface props {
   id: number;
@@ -9,6 +10,22 @@ interface props {
 }
 
 function Product({ id, title, image, price, rating }: props) {
+  const [{ basket }, dispatch] = useStateValue();
+
+  const addToBasket = () => {
+    // 여기서 설정해주는것이 reducer의 action parameter임.
+    dispatch({
+      type: "ADD_TO_BASKET",
+      payload: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  };
+
   return (
     <div className="product">
       <div className="product_info">
@@ -22,7 +39,7 @@ function Product({ id, title, image, price, rating }: props) {
         <div className="product_rating">{Array(rating).fill(<p>⭐️</p>)}</div>
       </div>
       <img src={image} alt="" style={{ width: "300px" }} />
-      <button>장바구니에 담기</button>
+      <button onClick={addToBasket}>장바구니에 담기</button>
     </div>
   );
 }

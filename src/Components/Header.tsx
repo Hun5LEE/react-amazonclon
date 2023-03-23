@@ -2,9 +2,11 @@ import React from "react";
 import "../ComponentsCss/Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasket from "@mui/icons-material/ShoppingBasket";
+import { useStateValue } from "../store/StateProvider";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const [{ basket }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
   return (
@@ -39,7 +41,9 @@ function Header() {
           onClick={() => navigate("/checkout")}
         >
           <ShoppingBasket />
-          <span className="header_optionLineTwoheader_basketCount">구독</span>
+          <span className="header_optionLineTwoheader_basketCount">
+            {basket?.length}
+          </span>
         </div>
       </div>
     </div>

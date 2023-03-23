@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
-import Checkout from "./Components/Checkout";
+import Checkout from "./pages/Checkout";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
