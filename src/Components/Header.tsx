@@ -26,7 +26,14 @@ function Header() {
       <div className="header_nav">
         <div className="header_option">
           <span className="header_optionLineOne">안녕하세요</span>
-          <span className="header_optionLineTwo">로그인하기</span>
+          <span
+            className="header_optionLineTwo"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            로그인하기
+          </span>
         </div>
         <div className="header_option">
           <span className="header_optionLineOne">돌아가기</span>

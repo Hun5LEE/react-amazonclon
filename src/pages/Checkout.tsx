@@ -1,8 +1,20 @@
 import React from "react";
 import Subtotal from "../Components/Subtotal";
+import CheckoutProduct from "../Components/CheckoutProduct";
 import "../ComponentsCss/Checkout.css";
+import { useStateValue } from "../store/StateProvider";
+
+interface props {
+  id: number;
+  title: string;
+  price: string;
+  image: string;
+  rating: number;
+}
 
 function Checkout() {
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <div className="checkout">
       <div className="checkout_left">
@@ -14,10 +26,18 @@ function Checkout() {
         <div>
           <h2 className="checkout_title">장바구니</h2>
         </div>
-        {/* 장바구니 아이템 */}
-        {/* 장바구니 아이템 */}
-        {/* 장바구니 아이템 */}
-        {/* 장바구니 아이템 */}
+        {basket.map((item: props) => {
+          return (
+            <CheckoutProduct
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              rating={item.rating}
+            />
+          );
+        })}
       </div>
       <div className="checkout_right">
         <Subtotal />

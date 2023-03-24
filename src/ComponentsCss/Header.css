@@ -58,6 +58,7 @@
 }
 
 .header_optionLineTwo {
+  cursor: pointer;
   font-size: 13px;
   font-weight: 600;
   margin-top: 3px;
