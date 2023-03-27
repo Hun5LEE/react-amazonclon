@@ -5,7 +5,7 @@ export const initialState = {
 // 총합계산
 export const getBasketTotal = (basket) =>
   basket.reduce((amount, item) => Number(item.price) + Number(amount), 0);
-
+// string -> number로
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_BASKET":

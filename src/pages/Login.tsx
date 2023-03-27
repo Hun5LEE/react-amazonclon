@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "../ComponentsCss/Login.css";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  //
+  const signIn = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+    e.preventDefault();
+  };
+
+  const register = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
+    e.preventDefault();
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth: any) => {
+        console.log(auth);
+      })
+      .catch((error: any) => alert(error.message));
+  };
+
   return (
     <div className="login">
       <img
@@ -16,13 +37,27 @@ function Login() {
         <h1> 로그인 </h1>
         <form>
           <h5> 이메일 </h5>
-          <input type="text" />
+          <input
+            value={email}
+            type="text"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <h5> 비밀번호 </h5>
-          <input type="password" />
-          <button className="login_signInButton"> 로그인 하기 </button>
+          <input
+            value={password}
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="login_signInButton" onClick={signIn}>
+            {" "}
+            로그인 하기{" "}
+          </button>
         </form>
         <p> 이용 약관 동의하십니까? </p>
-        <button className="login_registerButton"> 회원가입 </button>
+        <button className="login_registerButton" onClick={register}>
+          {" "}
+          회원가입{" "}
+        </button>
       </div>
     </div>
   );
