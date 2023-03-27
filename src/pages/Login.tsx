@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../ComponentsCss/Login.css";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
-
+impoer {getAuth} from "firebase/auth";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +17,7 @@ function Login() {
   ): void => {
     e.preventDefault();
 
+    const auth = getAuth();
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth: any) => {
