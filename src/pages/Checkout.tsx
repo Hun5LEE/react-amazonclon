@@ -13,7 +13,7 @@ interface props {
 }
 
 function Checkout() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   return (
     <div className="checkout">
@@ -24,7 +24,7 @@ function Checkout() {
           alt=""
         />
         <div>
-          <h2 className="checkout_title">장바구니</h2>
+          <h2 className="checkout_title">{user?.email}장바구니</h2>
         </div>
         {basket.map((item: props) => {
           return (

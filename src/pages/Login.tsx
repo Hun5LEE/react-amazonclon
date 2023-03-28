@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import "../ComponentsCss/Login.css";
 import { useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../firebase";
-impoer {getAuth} from "firebase/auth";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,6 +14,12 @@ function Login() {
   //
   const signIn = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
     e.preventDefault();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((auth) => {
+        navigate("/");
+      })
+      .catch((error: any) => alert(error.message));
   };
 
   const register = (
@@ -17,15 +27,14 @@ function Login() {
   ): void => {
     e.preventDefault();
 
-    const auth = getAuth();
-    auth
-      .createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((auth: any) => {
-        console.log(auth);
+        if (auth) {
+          navigate("/");
+        }
       })
       .catch((error: any) => alert(error.message));
   };
-
   return (
     <div className="login">
       <img

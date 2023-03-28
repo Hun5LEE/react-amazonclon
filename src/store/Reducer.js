@@ -1,5 +1,7 @@
 export const initialState = {
   basket: [],
+  user: null,
+  // 유저의 정보도 가져오기
 };
 
 // 총합계산
@@ -25,11 +27,19 @@ const reducer = (state, action) => {
           " (id: " + action.id + ")이 장바구니에 존재하지 않습니다 "
         );
       }
+
       return {
         ...state,
         basket: newBasket,
       };
     // index에는 제거하기누른 인덱스(위치정보)가 담겨있다.
+
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
+
     default:
       return state;
   }
